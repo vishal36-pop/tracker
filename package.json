@@ -1,0 +1,56 @@
+{
+  "name": "northstar-study-tracker",
+  "productName": "Northstar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Black and white MLE, Applied Scientist and DSA study tracker",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis portable --x64 --publish never"
+  },
+  "devDependencies": {
+    "electron": "^44.0.0",
+    "electron-builder": "^26.0.0"
+  },
+  "build": {
+    "appId": "app.northstar.studytracker",
+    "productName": "Northstar",
+    "asar": true,
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "index.html",
+      "main.js",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "artifactName": "Northstar-Setup-${version}.${ext}"
+    },
+    "portable": {
+      "artifactName": "Northstar-Portable-${version}.${ext}"
+    }
+  }
+}
